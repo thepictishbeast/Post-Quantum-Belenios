@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "pqhv-core",
+    "pqhv-zkp",
+    "pqhv-threshold",
+    "pqhv-protocol",
+    "pqhv-wasm",
+    "pqhv-bench",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+repository = "https://github.com/redcaptian1917/pqhv"
+description = "Post-Quantum Homomorphic Voting — Lattice-based replacement for Belenios ElGamal"

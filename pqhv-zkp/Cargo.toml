@@ -1,0 +1,12 @@
+[package]
+name = "pqhv-zkp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Zero-knowledge proofs for post-quantum voting ballots"
+
+[dependencies]
+pqhv-core = { path = "../pqhv-core" }
+rand = "0.8"
+sha2 = "0.10"
+serde = { version = "1", features = ["derive"] }

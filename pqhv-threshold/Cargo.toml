@@ -1,0 +1,11 @@
+[package]
+name = "pqhv-threshold"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Lattice-based threshold decryption for distributed election tallying"
+
+[dependencies]
+pqhv-core = { path = "../pqhv-core" }
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
