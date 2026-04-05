@@ -43,12 +43,6 @@ pub enum ThresholdError {
         index: usize,
     },
 
-    /// Shamir (t,n)-threshold with t < n is not supported for power-of-2 moduli.
-    ThresholdNotSupported {
-        t: usize,
-        n: usize,
-    },
-
     /// A partial decryption has a trustee index outside the valid range [1, n].
     InvalidShareIndex {
         /// The invalid index.
@@ -80,9 +74,6 @@ impl fmt::Display for ThresholdError {
                     "insufficient partial decryptions: {} provided, {} required",
                     provided, required
                 )
-            }
-            ThresholdError::ThresholdNotSupported { t, n } => {
-                write!(f, "t={} < n={} threshold not supported (use t=n for additive sharing)", t, n)
             }
             ThresholdError::DuplicateShareIndex { index } => {
                 write!(
