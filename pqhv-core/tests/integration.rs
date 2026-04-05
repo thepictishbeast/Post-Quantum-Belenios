@@ -6,7 +6,7 @@
 
 use pqhv_core::{
     decrypt::{decrypt, decrypt_tally},
-    encrypt::{add_ciphertexts, encrypt, sum_ciphertexts, Ciphertext},
+    encrypt::{encrypt, sum_ciphertexts, Ciphertext},
     keygen::keygen,
     params::{PQHV_TEST, PQHV_VOTING_128},
 };

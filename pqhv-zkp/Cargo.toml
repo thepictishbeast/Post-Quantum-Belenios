@@ -10,3 +10,7 @@ pqhv-core = { path = "../pqhv-core" }
 rand = "0.8"
 sha2 = "0.10"
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+rand_chacha = "0.3"

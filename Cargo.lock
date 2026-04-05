@@ -413,7 +413,9 @@ version = "0.1.0"
 dependencies = [
  "pqhv-core",
  "rand",
+ "rand_chacha",
  "serde",
+ "serde_json",
  "sha2",
 ]
 

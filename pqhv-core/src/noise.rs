@@ -56,11 +56,7 @@ impl NoiseTracker {
     /// Returns 0 if the budget is already exceeded.
     pub fn remaining(&self) -> u64 {
         let budget = self.params.noise_budget();
-        if self.additions >= budget {
-            0
-        } else {
-            budget - self.additions
-        }
+        budget.saturating_sub(self.additions)
     }
 
     /// Returns the fraction of noise budget consumed, as a value in [0.0, 1.0+].
