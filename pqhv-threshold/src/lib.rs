@@ -55,13 +55,14 @@
 //! use rand_chacha::ChaCha20Rng;
 //!
 //! let mut rng = ChaCha20Rng::from_entropy();
+//! // Additive sharing: all 3 trustees must participate (t == n)
 //! let threshold = ThresholdParams::new(3, 3).unwrap();
 //! let (pk, shares) = generate_threshold_keys(&PQHV_TEST, &threshold, &mut rng);
 //!
 //! // Encrypt a vote
 //! let ct = encrypt(&pk, 1, &PQHV_TEST, &mut rng);
 //!
-//! // All 3 trustees produce partial decryptions
+//! // All trustees produce partial decryptions
 //! let partials: Vec<_> = shares.iter()
 //!     .map(|share| partial_decrypt(share, &ct))
 //!     .collect();
