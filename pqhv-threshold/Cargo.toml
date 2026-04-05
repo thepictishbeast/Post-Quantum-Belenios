@@ -9,3 +9,6 @@ description = "Lattice-based threshold decryption for distributed election tally
 pqhv-core = { path = "../pqhv-core" }
 rand = "0.8"
 serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+rand_chacha = "0.3"
