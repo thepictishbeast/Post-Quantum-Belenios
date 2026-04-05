@@ -1,26 +1,37 @@
 # PQHV — Post-Quantum Homomorphic Voting
 
-A post-quantum fork of the [Belenios](https://www.belenios.org/) verifiable online voting protocol. Replaces Belenios's classical ElGamal cryptographic core with lattice-based (Module-LWE) primitives while preserving the protocol's verifiability and privacy guarantees.
+Every online voting system used today relies on cryptography that quantum computers will break. When that happens, election results become forgeable — anyone with a sufficiently powerful quantum machine could decrypt ballots, fabricate tallies, or impersonate voters. PQHV is a drop-in replacement for the cryptographic core of verifiable voting systems, built on mathematics that quantum computers cannot crack.
 
-## Architecture
+## The Problem
+
+The [Belenios](https://www.belenios.org/) protocol is one of the most widely deployed verifiable voting systems, used in French institutional elections and academic governance worldwide. Its security depends entirely on the classical ElGamal encryption scheme, which NIST has confirmed will be broken by cryptographically relevant quantum computers within the next decade. No quantum-safe alternative exists that preserves Belenios's critical properties: additive homomorphism (tallying encrypted votes without decrypting them), verifiable ballot validity (zero-knowledge proofs that each vote is well-formed), and threshold decryption (no single entity can decrypt individual ballots).
+
+## How It Works
+
+PQHV replaces ElGamal with a lattice-based encryption scheme (Module-LWE) that provides the same additive homomorphism — encrypted votes can still be summed without decryption — while resisting quantum attacks. The project is structured as a Rust workspace with modular crates that mirror Belenios's cryptographic pipeline: key generation, ballot encryption, zero-knowledge proofs, threshold decryption, and full election lifecycle.
+
+## Current Status
 
 | Crate | Purpose | Status |
 |-------|---------|--------|
-| `pqhv-core` | Additively homomorphic Module-LWE encryption | **Active** |
-| `pqhv-zkp` | Lattice-based zero-knowledge proofs for ballot validity | Placeholder |
-| `pqhv-threshold` | Lattice-based threshold decryption (distributed tallying) | Placeholder |
-| `pqhv-protocol` | Full election protocol (setup → vote → tally → verify) | Placeholder |
-| `pqhv-wasm` | WebAssembly bindings for client-side ballot encryption | Placeholder |
-| `pqhv-bench` | Criterion benchmarks for all operations | **Active** |
+| `pqhv-core` | Additively homomorphic Module-LWE encryption | ✅ Working, 78 tests |
+| `pqhv-zkp` | Disjunctive Sigma protocol ballot validity proofs | ✅ Working, 13 tests |
+| `pqhv-threshold` | Threshold decryption (additive + Shamir sharing) | ✅ Working, 30 tests |
+| `pqhv-protocol` | Full election protocol (setup → vote → tally → verify) | 📋 Planned |
+| `pqhv-wasm` | WebAssembly bindings for client-side ballot encryption | 📋 Planned |
+| `pqhv-bench` | Criterion benchmarks for all operations | ✅ Working |
 
 ## Quick Start
 
 ```bash
+git clone https://github.com/redcaptian1917/Post-Quantum-Belenios.git
+cd Post-Quantum-Belenios
+
 # Build everything
 cargo build --workspace
 
-# Run all tests
-cargo test --workspace
+# Run all 141 tests
+TMPDIR=$HOME/.cargo/tmp cargo test --workspace
 
 # Run benchmarks
 cargo bench
@@ -47,6 +58,10 @@ The scheme operates in the polynomial ring `R_q = Z_q[X] / (X^n + 1)` with modul
 ## Research Plan
 
 See `docs/` for the Belenios cryptographic audit and replacement boundary analysis.
+
+## The PlausiDen Ecosystem
+
+PQHV is the cryptographic foundation for [Sacred.Vote](https://sacred.vote), a zero-trust polling platform where voter identity is mathematically decoupled from ballot records. It replaces Sacred.Vote's current Belenios integration with quantum-resistant primitives. Related repositories: [sacredvote-gatekeeper](https://github.com/redcaptian1917/sacredvote-gatekeeper) (election lifecycle manager), [plausiden-zktls](https://github.com/redcaptian1917/plausiden-zktls) (voter identity verification).
 
 ## License
 
