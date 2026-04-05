@@ -1,4 +1,7 @@
+export TMPDIR := env("HOME") / ".cargo/tmp"
+
 test:
+    mkdir -p $TMPDIR
     cargo test
 
 test-verbose:
