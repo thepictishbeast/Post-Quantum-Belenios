@@ -20,6 +20,8 @@
 //!
 //! This crate is a placeholder until Phase 5 of the PQHV research plan.
 
+#![forbid(unsafe_code)]
+
 /// Placeholder — will contain wasm-bindgen exports.
 pub fn placeholder() {
     // Phase 5 of PQHV research plan

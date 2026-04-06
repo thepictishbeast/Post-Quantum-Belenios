@@ -12,3 +12,5 @@
 //! | Single decryption      | < 100 ms  |
 //! | Ciphertext addition    | < 1 ms    |
 //! | Tally 10,000 votes     | < 30 sec  |
+
+#![forbid(unsafe_code)]

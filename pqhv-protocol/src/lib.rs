@@ -22,6 +22,8 @@
 //!
 //! This crate is a placeholder until Phase 4 of the PQHV research plan.
 
+#![forbid(unsafe_code)]
+
 /// Placeholder — will contain the full election protocol.
 pub fn placeholder() {
     // Phase 4 of PQHV research plan

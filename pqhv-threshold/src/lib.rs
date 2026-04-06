@@ -80,6 +80,8 @@
 //! secret key. The dealer model is appropriate for a first deployment where the
 //! election authority is trusted during setup but not during tallying.
 
+#![forbid(unsafe_code)]
+
 pub mod threshold;
 pub mod error;
 

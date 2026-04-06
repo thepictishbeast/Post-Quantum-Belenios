@@ -41,6 +41,8 @@
 //! assert!(verify_ballot_proof(&pk, &ballot.ciphertext, &ballot.proof, &PQHV_TEST));
 //! ```
 
+#![forbid(unsafe_code)]
+
 pub mod challenge;
 pub mod disjunctive;
 pub mod ballot;

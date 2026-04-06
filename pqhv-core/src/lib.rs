@@ -51,6 +51,8 @@
 //! assert_eq!(decrypt_tally(&sk, &tally, &PQHV_TEST), 5);
 //! ```
 
+#![forbid(unsafe_code)]
+
 pub mod params;
 pub mod sample;
 pub mod poly;
