@@ -194,7 +194,7 @@ mod tests {
         let mut rng = test_rng();
         let (pk, _) = keygen(&PQHV_TEST, &mut rng);
         let ct = encrypt(&pk, 1, &PQHV_TEST, &mut rng);
-        let sum = sum_ciphertexts(&[ct.clone()]);
+        let sum = sum_ciphertexts(std::slice::from_ref(&ct));
         assert_eq!(sum, ct);
     }
 

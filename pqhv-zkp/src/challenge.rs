@@ -86,7 +86,7 @@ mod tests {
         let hash = [0x42u8; 32];
         let c = challenge_from_hash(&hash, &PQHV_TEST);
         for &coeff in &c.coeffs {
-            assert!(coeff >= -1 && coeff <= 1, "Non-ternary coefficient: {}", coeff);
+            assert!((-1..=1).contains(&coeff), "Non-ternary coefficient: {}", coeff);
         }
     }
 

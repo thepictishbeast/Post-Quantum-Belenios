@@ -4,6 +4,14 @@
 //! homomorphic addition → decryption, at various scales from single votes
 //! to municipal-scale elections.
 
+// These tally loops walk parallel arrays (candidate_cts, expected_counts,
+// results) keyed by the candidate index, and the index value itself is part
+// of the assertion message and the if-equals comparison. Rewriting them as
+// enumerate() iterators would not improve clarity — the index *is* the unit
+// of work — so we suppress `needless_range_loop` for the whole test file
+// rather than annotating every test function individually.
+#![allow(clippy::needless_range_loop)]
+
 use pqhv_core::{
     decrypt::{decrypt, decrypt_tally},
     encrypt::{encrypt, sum_ciphertexts, Ciphertext},
