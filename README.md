@@ -85,7 +85,7 @@ cargo bench
 belenios-pqhv is the long-term cryptographic foundation for [Sacred.Vote](https://sacred.vote). Sacred.Vote currently uses Belenios for verifiable elections; this project ensures that the cryptographic guarantees survive the transition to post-quantum computing. The lattice primitives in [pqhv](https://github.com/PlausiDen/pqhv) are developed as a standalone library so other verifiable voting systems can adopt them independently.
 
 Related repositories:
-- [Sacred.Vote](https://github.com/PlausiDen/Sacred.Vote) -- The voting platform that will adopt this integration
+- [Sacred.Vote](https://github.com/thepictishbeast/Sacred.Vote) -- The voting platform that will adopt this integration
 - [pqhv](https://github.com/PlausiDen/pqhv) -- Module-LWE cryptographic primitives (standalone)
 - [Belenios upstream](https://www.belenios.org/) -- The original verifiable voting system
 
