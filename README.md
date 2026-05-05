@@ -8,7 +8,7 @@ Belenios is widely regarded as the most rigorous open-source verifiable voting s
 
 ## How It Works
 
-belenios-pqhv replaces Belenios's ElGamal encryption layer with Module-LWE (Learning With Errors) lattice-based cryptography from the [pqhv workspace](https://github.com/PlausiDen/pqhv), while preserving Belenios's verifiability properties and trust model.
+belenios-pqhv replaces Belenios's ElGamal encryption layer with Module-LWE (Learning With Errors) lattice-based cryptography from the [pqhv workspace](https://github.com/thepictishbeast/Post-Quantum-Belenios), while preserving Belenios's verifiability properties and trust model.
 
 ```
 +---------------------------+
@@ -49,7 +49,7 @@ belenios-pqhv replaces Belenios's ElGamal encryption layer with Module-LWE (Lear
 **References:**
 
 - [Belenios upstream](https://www.belenios.org/) -- The original verifiable voting system
-- [pqhv workspace](https://github.com/PlausiDen/pqhv) -- The Rust implementation of Module-LWE primitives (keygen, encrypt, decrypt)
+- [pqhv workspace](https://github.com/thepictishbeast/Post-Quantum-Belenios) -- The Rust implementation of Module-LWE primitives (keygen, encrypt, decrypt)
 - This work corresponds to Phase 4+ of the PQHV research plan
 
 ## Current Status
@@ -67,14 +67,14 @@ belenios-pqhv replaces Belenios's ElGamal encryption layer with Module-LWE (Lear
 
 ## Quick Start
 
-> **Note:** This repository is in early stages. The cryptographic primitives are implemented in [pqhv](https://github.com/PlausiDen/pqhv); integration with Belenios is planned.
+> **Note:** This repository is in early stages. The cryptographic primitives are implemented in [pqhv](https://github.com/thepictishbeast/Post-Quantum-Belenios); integration with Belenios is planned.
 
 ```bash
-git clone https://github.com/PlausiDen/belenios-pqhv.git
+git clone https://github.com/thepictishbeast/Post-Quantum-Belenios.git
 cd belenios-pqhv
 
 # For the lattice crypto primitives:
-git clone https://github.com/PlausiDen/pqhv.git ../pqhv
+git clone https://github.com/thepictishbeast/Post-Quantum-Belenios.git ../pqhv
 cd ../pqhv
 cargo test
 cargo bench
@@ -82,11 +82,11 @@ cargo bench
 
 ## The PlausiDen Ecosystem
 
-belenios-pqhv is the long-term cryptographic foundation for [Sacred.Vote](https://sacred.vote). Sacred.Vote currently uses Belenios for verifiable elections; this project ensures that the cryptographic guarantees survive the transition to post-quantum computing. The lattice primitives in [pqhv](https://github.com/PlausiDen/pqhv) are developed as a standalone library so other verifiable voting systems can adopt them independently.
+belenios-pqhv is the long-term cryptographic foundation for [Sacred.Vote](https://sacred.vote). Sacred.Vote currently uses Belenios for verifiable elections; this project ensures that the cryptographic guarantees survive the transition to post-quantum computing. The lattice primitives in [pqhv](https://github.com/thepictishbeast/Post-Quantum-Belenios) are developed as a standalone library so other verifiable voting systems can adopt them independently.
 
 Related repositories:
 - [Sacred.Vote](https://github.com/thepictishbeast/Sacred.Vote) -- The voting platform that will adopt this integration
-- [pqhv](https://github.com/PlausiDen/pqhv) -- Module-LWE cryptographic primitives (standalone)
+- [pqhv](https://github.com/thepictishbeast/Post-Quantum-Belenios) -- Module-LWE cryptographic primitives (standalone)
 - [Belenios upstream](https://www.belenios.org/) -- The original verifiable voting system
 
 ## License
