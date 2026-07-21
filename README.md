@@ -39,7 +39,7 @@ belenios-pqhv replaces Belenios's ElGamal encryption layer with Module-LWE (Lear
             v
 +---------------------------+
 |     Ballot Encryption     |  -- REPLACED: ElGamal -> Module-LWE
-|     (pqhv-core)          |     Lattice-based key encapsulation
+|     (pqhv-core)           |     Lattice-based key encapsulation
 +---------------------------+
             |
             v
